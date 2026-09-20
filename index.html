@@ -419,21 +419,22 @@
   }
 </style>
 </head>
-<body>
+<body style="display:none">
 <script>
 (function(){
-  var correctPassword = "space2026"; // ← 여기를 원하는 비밀번호로 바꾸세요
+  var correctPassword = "space2026"; // ← 원하는 비밀번호로 바꾸세요
   var entered = sessionStorage.getItem("siteUnlocked");
   if (entered !== "true") {
-        var pass = prompt("Enter password to view this site:");
+    var pass = prompt("Enter password to view this site:");
     if (pass !== null && pass === correctPassword) {
       sessionStorage.setItem("siteUnlocked", "true");
     } else {
-      document.write("<div style='font-family:sans-serif;padding:80px;text-align:center;'>Access denied.</div>");
-      document.close();
+      document.title = "Access Denied";
+      window.stop();
       throw new Error("stop");
     }
   }
+  document.body.style.display = "";
 })();
 </script>
 <header>
