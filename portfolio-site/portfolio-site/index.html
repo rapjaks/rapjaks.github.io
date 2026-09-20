@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ben Junghwan Lee — Industrial Design, Human Spaceflight</title>
+<meta name="description" content="Portfolio of Ben Junghwan Lee, Industrial Design Lead working on human spaceflight hardware and crew systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --ink:#14171c;
+    --muted:#5b6470;
+    --line:#e2e5e9;
+    --line-strong:#c9cdd3;
+    --accent:#e8570a;
+    --accent-ink:#ffffff;
+    --max:1100px;
+    --text-max:640px;
+    --display: 'Space Grotesk', 'Century Gothic', 'Futura', sans-serif;
+    --body: 'Inter', Helvetica, Arial, sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+
+  a{color:inherit;}
+
+  h1,h2,h3{
+    font-family:var(--display);
+    font-weight:700;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    z-index:50;
+  }
+  .nav{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:18px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .nav-name{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:17px;
+    text-decoration:none;
+  }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .nav-links a{
+    text-decoration:none;
+    font-size:14px;
+    color:var(--muted);
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-toggle{display:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 88px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.55), transparent 85%);
+    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.55), transparent 85%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;}
+  .hero-eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:22px;
+  }
+  .hero-eyebrow .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--accent);
+    flex:none;
+  }
+  .hero h1{
+    font-size:clamp(38px, 6vw, 62px);
+    line-height:1.04;
+    max-width:14ch;
+  }
+  .hero-role{
+    font-family:var(--display);
+    font-size:clamp(18px,2.4vw,22px);
+    color:var(--muted);
+    margin-top:18px;
+    font-weight:500;
+  }
+  .hero-sub{
+    max-width:var(--text-max);
+    margin-top:22px;
+    font-size:17px;
+    color:#333a42;
+  }
+  .hero-actions{
+    margin-top:36px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--body);
+    font-size:14px;
+    font-weight:600;
+    padding:12px 22px;
+    border-radius:2px;
+    text-decoration:none;
+    display:inline-block;
+    border:1px solid var(--ink);
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn-primary{
+    background:var(--ink);
+    color:var(--white);
+  }
+  .btn-primary:hover{background:var(--accent);border-color:var(--accent);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border-color:var(--line-strong);
+  }
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* ---------- Sections ---------- */
+  section{padding:84px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:44px;
+  }
+  .section-head .num{
+    font-family:var(--display);
+    color:var(--accent);
+    font-size:14px;
+    font-weight:700;
+  }
+  .section-head h2{font-size:28px;}
+
+  /* ---------- About ---------- */
+  .about-body{
+    max-width:var(--text-max);
+    font-size:17px;
+    color:#2b2f36;
+  }
+  .about-body p + p{margin-top:16px;}
+
+  /* ---------- Experience ---------- */
+  .timeline{
+    border-left:1px solid var(--line);
+  }
+  .role{
+    position:relative;
+    padding:0 0 40px 32px;
+  }
+  .role:last-child{padding-bottom:0;}
+  .role::before{
+    content:"";
+    position:absolute;
+    left:-5px;
+    top:6px;
+    width:9px;height:9px;
+    border-radius:50%;
+    background:var(--white);
+    border:2px solid var(--accent);
+  }
+  .role-top{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:8px 14px;
+    margin-bottom:6px;
+  }
+  .role-title{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:18px;
+  }
+  .role-org{color:var(--muted);font-size:15px;}
+  .role-time{
+    margin-left:auto;
+    font-size:13px;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .role-desc{
+    max-width:var(--text-max);
+    color:#333a42;
+    font-size:15px;
+  }
+  .role-desc ul{margin:10px 0 0;padding-left:18px;}
+  .role-desc li + li{margin-top:6px;}
+
+  .edu{
+    margin-top:48px;
+    padding-top:32px;
+    border-top:1px solid var(--line);
+  }
+  .edu-label{font-size:13px;color:var(--muted);margin-bottom:10px;}
+  .edu-title{font-family:var(--display);font-weight:700;font-size:17px;}
+  .edu-org{color:var(--muted);font-size:15px;margin-top:4px;}
+
+  /* ---------- Projects ---------- */
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .project-card{
+    background:var(--white);
+    padding:32px;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    min-height:220px;
+    transition:background .15s ease;
+  }
+  .project-card:hover{background:#fafafa;}
+  .project-card:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+  .project-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .badge{
+    font-size:11px;
+    font-weight:600;
+    padding:4px 9px;
+    border-radius:2px;
+    white-space:nowrap;
+  }
+  .badge-dev{background:#fdece2;color:var(--accent);}
+  .badge-live{background:#eef4ee;color:#2e6b3e;}
+  .badge-tmpl{background:#f1f2f4;color:var(--muted);}
+  .project-card h3{font-size:20px;}
+  .project-tag{font-size:13px;color:var(--muted);}
+  .project-blurb{font-size:14px;color:#3a4048;flex:1;}
+  .project-open{
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .project-open svg{width:14px;height:14px;}
+
+  @media (max-width:720px){
+    .project-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:32px;
+    align-items:flex-end;
+  }
+  .contact-row h2{font-size:32px;max-width:12ch;}
+  .contact-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:flex-end;
+  }
+  .contact-links a{
+    font-size:15px;
+    text-decoration:none;
+    color:var(--ink);
+    border-bottom:1px solid var(--line-strong);
+    padding-bottom:2px;
+  }
+  .contact-links a:hover{border-color:var(--accent);color:var(--accent);}
+
+  footer{
+    padding:28px 0;
+    font-size:12px;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+  }
+
+  @media (max-width:640px){
+    .nav-links{
+      position:fixed;
+      top:60px;left:0;right:0;
+      background:var(--white);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;
+      gap:0;
+      display:none;
+      padding:8px 0;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 32px;display:block;}
+    .nav-toggle{
+      display:inline-flex;
+      background:none;border:none;
+      font-family:var(--body);font-size:14px;font-weight:600;
+      cursor:pointer;color:var(--ink);
+    }
+    .contact-row{flex-direction:column;align-items:flex-start;}
+    .contact-links{align-items:flex-start;}
+    .role-time{margin-left:0;}
+  }
+
+  /* ---------- Modal ---------- */
+  .modal-backdrop{
+    position:fixed;inset:0;
+    background:rgba(20,23,28,0.45);
+    display:none;
+    align-items:flex-start;
+    justify-content:center;
+    padding:5vh 20px;
+    z-index:100;
+    overflow-y:auto;
+  }
+  .modal-backdrop.open{display:flex;}
+  .modal{
+    background:var(--white);
+    max-width:640px;
+    width:100%;
+    border:1px solid var(--line-strong);
+    padding:40px;
+    margin-bottom:5vh;
+  }
+  .modal-close{
+    float:right;
+    background:none;border:none;
+    font-family:var(--body);font-size:13px;font-weight:600;
+    cursor:pointer;color:var(--muted);
+    padding:6px 0;
+  }
+  .modal-close:hover{color:var(--ink);}
+  .modal-badge{margin-bottom:14px;}
+  .modal h3{font-size:24px;margin-bottom:6px;clear:both;}
+  .modal .project-tag{margin-bottom:22px;}
+  .modal-field{margin-top:22px;}
+  .modal-field h4{
+    font-family:var(--display);
+    font-size:12px;
+    letter-spacing:.02em;
+    color:var(--accent);
+    margin-bottom:8px;
+    font-weight:700;
+  }
+  .modal-field p, .modal-field li{font-size:14.5px;color:#333a42;}
+  .modal-field ul{margin:0;padding-left:18px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="nav-name">Ben Junghwan Lee</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false">Menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ---------- Hero ---------- -->
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-eyebrow"><span class="dot"></span>Webster, TX</div>
+      <h1>Designing the spaces people live and work in off Earth.</h1>
+      <div class="hero-role">Industrial Design Lead, Human Spaceflight</div>
+      <p class="hero-sub">I shape the hardware and crew systems inside commercial space stations and habitats — carrying concepts from early sketch through ground testing with astronauts to flight-ready design.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">See the work</a>
+        <a class="btn btn-ghost" href="assets/resume.pdf" download>Download résumé</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- About ---------- -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><h2>About</h2></div>
+      <div class="about-body">
+        <p>I'm an industrial designer working at the intersection of human factors and spaceflight hardware. Since 2020 I've led design for crew systems and habitat interiors at Axiom Space, working alongside space architects, engineers, and astronauts to turn mission requirements into equipment people can trust in orbit.</p>
+        <p>Before that, I designed environmental control and crew systems for expandable habitats at Bigelow Aerospace under NASA's NextSTEP initiative, and spent four years at Owlet Baby Care building consumer hardware from prototype through mass manufacturing. I hold a BFA in Industrial Design from Brigham Young University.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Experience ---------- -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head"><span class="num">01</span><h2>Experience</h2></div>
+
+      <div class="timeline">
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-title">Industrial Design Lead</span>
+            <span class="role-org">Axiom Space</span>
+            <span class="role-time">May 2020 — Present</span>
+          </div>
+          <div class="role-desc">
+            <p>Direct end-to-end design and manufacturing alignment for spaceflight hardware and crew systems, working with space architects, soft goods specialists, and engineering teams.</p>
+            <ul>
+              <li>Mentor junior designers and lead cross-functional design workshops toward unified UX goals on high-stakes aerospace programs</li>
+              <li>Validate architecture concepts through full-scale mockups, rapid prototypes, and immersive AR/VR simulation</li>
+              <li>Lead internal design reviews and astronaut feedback sessions to mature flight-ready concepts</li>
+              <li>Set design brand guidelines and Color, Material &amp; Finish standards for future commercial habitat modules</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-title">Industrial Designer III</span>
+            <span class="role-org">Bigelow Aerospace</span>
+            <span class="role-time">Jun 2017 — Mar 2020</span>
+          </div>
+          <div class="role-desc">
+            <p>Designed and prototyped ECLSS and crew systems for expandable space habitats under NASA's NextSTEP initiative — crew quarters, lavatories, hygiene booths, exercise gear, and stowage.</p>
+            <ul>
+              <li>Developed concept models meeting launch-force, microgravity safety, and weight standards</li>
+              <li>Partnered directly with NASA astronauts in ground testing to optimize ergonomics and workflow</li>
+              <li>Fabricated 1:1 operational models and prototypes using CNC mills, 3D printers, and laser/vinyl cutters</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-title">Industrial Designer</span>
+            <span class="role-org">Owlet Baby Care</span>
+            <span class="role-time">Jan 2013 — Feb 2017</span>
+          </div>
+          <div class="role-desc">
+            <p>Prototyped daily to accelerate design verification, planning and running hundreds of in-home and remote user behavior tests.</p>
+            <ul>
+              <li>Sourced materials and built soft-goods manufacturing lines from scratch, domestically and abroad</li>
+              <li>Collaborated with factory managers and engineers to resolve production issues, cutting BOM costs</li>
+              <li>Named co-inventor on two design patents for infant wearable devices</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-title">Design Consultant</span>
+            <span class="role-org">Freelance</span>
+            <span class="role-time">Jan 2013 — Present</span>
+          </div>
+          <div class="role-desc">
+            <p>Guide clients across medical, consumer electronics, outdoor sports, and food sectors on design direction, scoping, and budgets from ideation to mass manufacturing — including rapid prototyping, logo design, front-end app development, circuit board design, and Kickstarter consultancy.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="edu">
+        <div class="edu-label">Education</div>
+        <div class="edu-title">BFA, Industrial Design</div>
+        <div class="edu-org">Brigham Young University — 2013</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Projects ---------- -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head"><h2>Projects</h2></div>
+      <div class="project-grid" id="projectGrid"></div>
+    </div>
+  </section>
+
+  <!-- ---------- Contact ---------- -->
+  <section id="contact">
+    <div class="wrap contact-row">
+      <h2>Let's talk about hardware for hard places.</h2>
+      <div class="contact-links">
+        <a href="mailto:rapjaks@gmail.com">rapjaks@gmail.com</a>
+        <a href="assets/resume.pdf" download>Download résumé</a>
+        <a href="#" id="linkedinLink">LinkedIn — add your URL</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>Ben Junghwan Lee</span>
+  <span>Built for GitHub Pages</span>
+</footer>
+
+<!-- ---------- Project modal ---------- -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" role="dialog" aria-modal="true" id="modal">
+    <button class="modal-close" id="modalClose">Close ✕</button>
+    <div id="modalBadge" class="modal-badge"></div>
+    <h3 id="modalTitle"></h3>
+    <div class="project-tag" id="modalTag"></div>
+    <div class="modal-field"><h4>Overview</h4><p id="modalOverview"></p></div>
+    <div class="modal-field"><h4>Process</h4><p id="modalProcess"></p></div>
+    <div class="modal-field"><h4>Requirements</h4><div id="modalRequirements"></div></div>
+    <div class="modal-field"><h4>User profile</h4><p id="modalUser"></p></div>
+  </div>
+</div>
+
+<script>
+/*
+  PROJECTS DATA
+  -------------
+  Add or edit projects by adding objects to this array. Each one renders as a
+  card in the grid, and clicking it opens the modal with the four fields
+  below. Replace the two "template" placeholders with your own work whenever
+  you're ready — just keep the same field names.
+*/
+const projects = [
+  {
+    title: "Orbital Habitat Walkthrough",
+    tag: "Interactive 3D · in development",
+    badge: { text: "In development", cls: "badge-dev" },
+    blurb: "A walkable CAD model of a space station module — move through the hatch, inspect systems from inside, and view the exterior.",
+    overview: "An interactive, first-person walkthrough of a space station habitat module, built as a CAD model and brought into a game engine. The goal is to let a viewer move through the hatch as if boarding the module, look around the interior at stowage, life support, and crew system hardware, and then step back to view the module from the outside.",
+    process: "Modeled in CAD from real habitat layout and volumetric constraints, then brought into a game engine (Unity or Godot) to add first-person navigation, collision, and interactive call-outs on individual systems. Once the walkthrough is playable, it will be exported to a web-compatible build and embedded directly on this page.",
+    requirements: [
+      "Accurate interior volume and hatch geometry, modeled from real habitat dimensions",
+      "First-person movement in and out of the hatch, plus a free exterior view",
+      "Selectable systems and stowage items with short descriptions",
+      "A build that exports cleanly to the web for embedding here"
+    ],
+    user: "Recruiters, collaborators, and space industry peers who want to understand both the design and the spatial reasoning behind a habitat module — without needing CAD software to see it."
+  },
+  {
+    title: "Project title",
+    tag: "Category · status",
+    badge: { text: "Template", cls: "badge-tmpl" },
+    blurb: "Short one-line summary of what this project is, written for someone skimming the grid.",
+    overview: "What the project is, who it was for, and why it exists. A few sentences is enough.",
+    process: "How the design took shape — key decisions, constraints you worked within, and what changed along the way.",
+    requirements: [
+      "Requirement or constraint one",
+      "Requirement or constraint two",
+      "Requirement or constraint three"
+    ],
+    user: "Who this was designed for, and what they needed from it."
+  },
+  {
+    title: "Project title",
+    tag: "Category · status",
+    badge: { text: "Template", cls: "badge-tmpl" },
+    blurb: "Short one-line summary of what this project is, written for someone skimming the grid.",
+    overview: "What the project is, who it was for, and why it exists. A few sentences is enough.",
+    process: "How the design took shape — key decisions, constraints you worked within, and what changed along the way.",
+    requirements: [
+      "Requirement or constraint one",
+      "Requirement or constraint two",
+      "Requirement or constraint three"
+    ],
+    user: "Who this was designed for, and what they needed from it."
+  }
+];
+
+const grid = document.getElementById('projectGrid');
+projects.forEach((p, i) => {
+  const card = document.createElement('div');
+  card.className = 'project-card';
+  card.tabIndex = 0;
+  card.setAttribute('role', 'button');
+  card.innerHTML = `
+    <div class="project-top">
+      <h3>${p.title}</h3>
+      <span class="badge ${p.badge.cls}">${p.badge.text}</span>
+    </div>
+    <div class="project-tag">${p.tag}</div>
+    <div class="project-blurb">${p.blurb}</div>
+    <div class="project-open">View design process
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </div>
+  `;
+  const open = () => openModal(i);
+  card.addEventListener('click', open);
+  card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  grid.appendChild(card);
+});
+
+const backdrop = document.getElementById('modalBackdrop');
+function openModal(i){
+  const p = projects[i];
+  document.getElementById('modalBadge').innerHTML = `<span class="badge ${p.badge.cls}">${p.badge.text}</span>`;
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalTag').textContent = p.tag;
+  document.getElementById('modalOverview').textContent = p.overview;
+  document.getElementById('modalProcess').textContent = p.process;
+  document.getElementById('modalRequirements').innerHTML = '<ul>' + p.requirements.map(r => `<li>${r}</li>`).join('') + '</ul>';
+  document.getElementById('modalUser').textContent = p.user;
+  backdrop.classList.add('open');
+  document.getElementById('modalClose').focus();
+}
+function closeModal(){ backdrop.classList.remove('open'); }
+document.getElementById('modalClose').addEventListener('click', closeModal);
+backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* Mobile nav toggle */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
